@@ -33,7 +33,7 @@
   become: yes
   copy:
    src: mysql-connector.jar
-   dest: /opt/"{{tom_dir}}"/lib/mysql-connector.jar
+   dest: /opt/"{{tom_dir}}"/lib/
 
 - name: stoping tomcat
   become: yes
