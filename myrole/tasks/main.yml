@@ -25,8 +25,8 @@
 
 - name: copying xml file 
   become: yes
-  copy:
-   src: context.xml
+  template:
+   src: context.xml.j2
    dest: /opt/"{{tom_dir}}"/conf/
 
 - name: copying connector file
