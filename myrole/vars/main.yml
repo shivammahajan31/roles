@@ -1,2 +1,4 @@
 ---
 # vars file for myrole
+URL: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.91/bin/apache-tomcat-9.0.91.tar.gz
+tom_dir: apache-tomcat-9.0.91

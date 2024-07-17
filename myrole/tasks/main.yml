@@ -1,2 +1,36 @@
 ---
 # tasks file for myrole
+- name: installing java
+  packages:
+   name: default-jdk
+   state: latest
+
+- name: dowloading & extracting
+  unarchive:
+   src: "{{URL}}"
+   dest: /opt
+  remote_src: true
+
+- name: starting tomcat
+  shell: /opt/"{{tom_dir}}"/bin/catalina.sh run
+
+- name: copying war file
+  copy:
+   src: student.war
+   dest: /opt/"{{tom_dir}}"/webapps
+
+- name: copying xml file 
+  copy:
+   src: context.xml
+   dest: /opt/"{{tom_dir}}"/conf/context.xml
+
+- name: copying connector file
+  copy:
+   src: mysql-connector.jar
+   dest: /opt/"{{tom_dir}}"/lib/mysql-connector.jar
+
+- name: stoping tomcat
+  shell: /opt/"{{tom_dir}}"/bin/catalina.sh stop
+
+- name: starting tomcat
+  shell: /opt/"{{tom_dir}}"/bin/catalina.sh run
