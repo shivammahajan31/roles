@@ -5,11 +5,11 @@
    name: default-jdk
    state: latest
 
-- name: dowloading & extracting
+- name: downlaoding and extracting
   unarchive:
    src: "{{URL}}"
-   dest: /opt
-  remote_src: true
+   dest: /opt/
+   remote_src: true
 
 - name: starting tomcat
   shell: /opt/"{{tom_dir}}"/bin/catalina.sh run
