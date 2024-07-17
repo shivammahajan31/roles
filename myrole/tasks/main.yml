@@ -1,7 +1,7 @@
 ---
 # tasks file for myrole
 - name: installing java
-  packages:
+  package:
    name: default-jdk
    state: latest
 
