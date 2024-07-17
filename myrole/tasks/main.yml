@@ -27,7 +27,7 @@
   become: yes
   copy:
    src: context.xml
-   dest: /opt/"{{tom_dir}}"/conf/context.xml
+   dest: /opt/"{{tom_dir}}"/conf/
 
 - name: copying connector file
   become: yes
