@@ -15,13 +15,13 @@
 
 - name: starting tomcat
   become: yes
-  shell: /opt/"{{tom_dir}}"/bin/catalina.sh run
+  shell: /opt/"{{tom_dir}}"/bin/catalina.sh start
 
 - name: copying war file
   become: yes
   copy:
    src: student.war
-   dest: /opt/"{{tom_dir}}"/webapps
+   dest: /opt/"{{tom_dir}}"/webapps/
 
 - name: copying xml file 
   become: yes
