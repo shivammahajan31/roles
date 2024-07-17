@@ -14,25 +14,31 @@
    remote_src: true
 
 - name: starting tomcat
+  become: yes
   shell: /opt/"{{tom_dir}}"/bin/catalina.sh run
 
 - name: copying war file
+  become: yes
   copy:
    src: student.war
    dest: /opt/"{{tom_dir}}"/webapps
 
 - name: copying xml file 
+  become: yes
   copy:
    src: context.xml
    dest: /opt/"{{tom_dir}}"/conf/context.xml
 
 - name: copying connector file
+  become: yes
   copy:
    src: mysql-connector.jar
    dest: /opt/"{{tom_dir}}"/lib/mysql-connector.jar
 
 - name: stoping tomcat
+  become: yes
   shell: /opt/"{{tom_dir}}"/bin/catalina.sh stop
 
 - name: starting tomcat
+  become: yes
   shell: /opt/"{{tom_dir}}"/bin/catalina.sh run
