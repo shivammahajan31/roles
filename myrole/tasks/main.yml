@@ -25,7 +25,7 @@
 
 - name: copying xml file 
   become: yes
-  template:
+  copy:
    src: context.xml.j2
    dest: /opt/"{{tom_dir}}"/conf/
 

@@ -1,4 +1,5 @@
 - name: deploying role 
+  become: yes
   hosts: all
   roles: 
     - myrole
