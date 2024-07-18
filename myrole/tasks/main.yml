@@ -3,42 +3,42 @@
 - name: installing java
   become: yes 
   package:
-   name: default-jdk
-   state: latest
+    name: default-jdk
+    state: latest
 
-- name: downlaoding and extracting
+- name: downloading and extracting
   become: yes
   unarchive:
-   src: "{{URL}}"
-   dest: /opt/
-   remote_src: true
+    src: "{{ URL }}"
+    dest: /opt/
+    remote_src: true
 
 - name: starting tomcat
   become: yes
-  shell: /opt/"{{tom_dir}}"/bin/catalina.sh start
+  shell: /opt/{{ tom_dir }}/bin/catalina.sh start
 
 - name: copying war file
   become: yes
   copy:
-   src: student.war
-   dest: /opt/"{{tom_dir}}"/webapps/
+    src: /etc/ansible/roles/myrole/files/student.war
+    dest: /opt/{{ tom_dir }}/webapps/
 
 - name: copying xml file 
   become: yes
   copy:
-   src: context.xml.j2
-   dest: /opt/"{{tom_dir}}"/conf/
+    src: context.xml.j2
+    dest: /opt/{{ tom_dir }}/conf/
 
 - name: copying connector file
   become: yes
   copy:
-   src: mysql-connector.jar
-   dest: /opt/"{{tom_dir}}"/lib/
+    src: /etc/ansible/roles/myrole/files/mysql-connector.jar
+    dest: /opt/{{ tom_dir }}/lib/
 
-- name: stoping tomcat
+- name: stopping tomcat
   become: yes
-  shell: /opt/"{{tom_dir}}"/bin/catalina.sh stop
+  shell: /opt/{{ tom_dir }}/bin/catalina.sh stop
 
 - name: starting tomcat
   become: yes
-  shell: /opt/"{{tom_dir}}"/bin/catalina.sh start
+  shell: /opt/{{ tom_dir }}/bin/catalina.sh start
